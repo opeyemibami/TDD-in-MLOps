@@ -1,7 +1,7 @@
 import joblib
 import pytest
 from pathlib import Path as p
-import os
+
 
 from utils.user_input import get_user_input
 

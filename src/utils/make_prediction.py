@@ -15,9 +15,9 @@ model,encoder = load_artefact.load_artefacts('lgbm_model.pkl','one_hot_encoder.p
 def pred():
     data = user_input.get_user_input(data_path)
     data = preprocessor.map_text_to_number(data)
-    data = preprocessor.convert_features_type_to_int(data)
     data = preprocessor.drop_features(data)
-    data = feature_engineering.one_hot_encode_date(data)
+    data = preprocessor.convert_features_type_to_int(data)
+    data = feature_engineering.one_hot_encode_data(data)
     data = feature_engineering.generate_new_feature(data)
     pred = model.predict(data)
     return pred

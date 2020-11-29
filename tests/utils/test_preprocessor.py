@@ -1,22 +1,28 @@
-# from . import feature_engineering as ft
-# import pandas as pd
+from utils import preprocessor 
+from utils.user_input import get_user_input
+from pathlib import Path as p
+import os
+import numpy as np
 
-# num_cols = ['age', 'height', 'weight', 'ap_hi', 'ap_lo', 'bmi']
-# multi_cols = ['cholesterol', 'gluc']
 
-# def preprocess_data(dataframe,scaler,one_hot_enc):
+base_path = p(__file__).parent.parent.parent.absolute()
+data_path = p.joinpath(base_path, "datasets","test.csv")
 
-#     data = ft.feature_eng(dataframe=dataframe)
 
-#     #One hot encoding
-#     hot_encoded_data = one_hot_enc.transform(data[multi_cols])
-#     d = pd.DataFrame(data=hot_encoded_data,columns=['cholesterol_normal','cholesterol_above_normal','cholesterol_well_above_normal','glucose_normal','glucose_above_normal','glucose_well_above_normal'],dtype=int ).reset_index(drop=True)
-#     data.drop(columns=multi_cols,axis=1,inplace=True)
-#     data = pd.concat(objs=[data,d],axis=1)
+#use pytest fixture to load dependencies
+data = get_user_input(data_path)
+raw_data = data.copy()
 
-#     #scale numerical columns
-#     scaler = scaler
-#     scaled = scaler.transform(data[num_cols])
-#     data[num_cols] = scaled
-#     return data
+prep_data = preprocessor.map_text_to_number(data)
+def test_map_text_to_number():
+    assert set(list(prep_data['Gender'].unique()))==set([1, 0])
+    assert set(list(prep_data['Vehicle_Age'].unique()))==set([2, 1, 0])
+    assert set(list(prep_data['Vehicle_Damage'].unique()))==set([1, 0])
 
+prep_data = preprocessor.drop_features(prep_data)
+def test_drop_features():
+    assert prep_data.shape[1]<raw_data.shape[1]
+
+prep_data = preprocessor.convert_features_type_to_int(prep_data)
+def test_convert_features_type_to_int():
+    assert prep_data.dtypes.unique()[0]==np.int32

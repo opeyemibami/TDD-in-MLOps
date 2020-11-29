@@ -6,7 +6,7 @@ _,encoder = load_artefacts('lgbm_model.pkl','one_hot_encoder.pkl')
 MULTI_CATEGORICAL_FEATURES = ['Vehicle_Age']
 ENCODED_FEATURES = ['Vehicle_Age_group_0','Vehicle_Age_group_1','Vehicle_Age_group_2']
 
-def one_hot_encode_date(data):
+def one_hot_encode_data(data):
     hot_encoded_data = encoder.transform(data[MULTI_CATEGORICAL_FEATURES])
     hot_encoded_data_df =pd.DataFrame(data=hot_encoded_data,columns=ENCODED_FEATURES,dtype=int).reset_index(drop=True)
     data.drop(columns=MULTI_CATEGORICAL_FEATURES,axis=1,inplace=True)
