@@ -1,7 +1,7 @@
-from utils import preprocessor 
-from utils.user_input import get_user_input
-from utils.load_artefact  import load_artefacts
-from utils import feature_engineering
+from src.utils import preprocessor 
+from src.utils.user_input import get_user_input
+from src.utils.load_artefact  import load_artefacts
+from src.utils import feature_engineering
 from pathlib import Path as p
 import os
 import numpy as np

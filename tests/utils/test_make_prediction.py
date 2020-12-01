@@ -3,10 +3,10 @@ import pytest
 from pathlib import Path as p
 import pandas as pd
 
-from utils import user_input
-from utils import load_artefact
-from utils import preprocessor
-from utils import feature_engineering
+from src.utils import user_input
+from src.utils import load_artefact
+from src.utils import preprocessor
+from src.utils import feature_engineering
 
 base_path = p(__file__).parent.parent.parent.absolute()
 data_path = p.joinpath(base_path, "datasets","test.csv")

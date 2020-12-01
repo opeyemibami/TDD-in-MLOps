@@ -1,4 +1,4 @@
-from utils.load_artefact  import load_artefacts
+from src.utils.load_artefact  import load_artefacts
 
 def test_load_artefacts():
     model,encoder = load_artefacts('lgbm_model.pkl','one_hot_encoder.pkl')

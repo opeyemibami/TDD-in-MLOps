@@ -1,5 +1,5 @@
-from utils import preprocessor 
-from utils.user_input import get_user_input
+from src.utils import preprocessor 
+from src.utils.user_input import get_user_input
 from pathlib import Path as p
 import os
 import numpy as np
@@ -21,7 +21,6 @@ def test_map_text_to_number():
     assert set(list(prep_data['Vehicle_Damage'].unique()))==set([1, 0])
 
 prep_data = preprocessor.drop_features(prep_data)
-@pytest.mark.xfail
 def test_drop_features():
     assert prep_data.shape[1]<raw_data.shape[1]
 
