@@ -3,5 +3,8 @@ python:
   - "3.8.3"
 install:
   - pip install -e .
+  - pip install codecov pytest-cov
 script:
-  - pytest tests
+  - pytest --cov=src tests
+after_success:
+  - codecov
