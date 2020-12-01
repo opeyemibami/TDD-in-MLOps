@@ -8,10 +8,9 @@ jobs:
       - uses: actions/checkout@v2
       - name: project-testing
         env:
-          PYTHONPATH: "."
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         run: |
-          echo $(pwd)  
-          pip install -r requirements.txt
           echo "::set-env name=PYTHONPATH::home/runner/work/TDD-in-MLOps"
+          pip install -r requirements.txt
           pytest tests/
           
