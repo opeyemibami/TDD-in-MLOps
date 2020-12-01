@@ -9,7 +9,6 @@ jobs:
       - name: project-testing
         run: |
           pip install -r requirements.txt
-          pip install setuptools wheel 
-          python setup.py sdist bdist_wheel
+          echo "::set-env name=PYTHONPATH::home/runner/work/TDD-in-MLOps"
           pytest tests/
           
