@@ -1,0 +1,6 @@
+pandas==1.0.5
+numpy==1.18.5
+joblib==0.16.0
+pytest==5.4.3
+pathlib
+lightgbm==3.0.0
