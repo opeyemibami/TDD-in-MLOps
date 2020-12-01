@@ -1,7 +1,7 @@
 import pandas as pd
-from utils.load_artefact  import load_artefacts
+from utils import load_artefact
 
-_,encoder = load_artefacts('lgbm_model.pkl','one_hot_encoder.pkl')
+_,encoder = load_artefact.load_artefacts('lgbm_model.pkl','one_hot_encoder.pkl')
 
 MULTI_CATEGORICAL_FEATURES = ['Vehicle_Age']
 ENCODED_FEATURES = ['Vehicle_Age_group_0','Vehicle_Age_group_1','Vehicle_Age_group_2']

@@ -3,7 +3,7 @@ import pytest
 from pathlib import Path as p
 
 
-from utils.user_input import get_user_input
+from src.utils.user_input import get_user_input
 
 base_path = p(__file__).parent.parent.parent.absolute()
 data_path = p.joinpath(base_path, "datasets","test.csv")
