@@ -1,5 +1,5 @@
 import pandas as pd
-from utils import load_artefact
+from . import load_artefact
 
 _,encoder = load_artefact.load_artefacts('lgbm_model.pkl','one_hot_encoder.pkl')
 
