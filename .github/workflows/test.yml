@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: project-testing
-      run: |
-        python setup.py sdist bdist_wheel
-        pip install -e .
-        pytest
+        run: |
+          python setup.py sdist bdist_wheel
+          pip install -e .
+          pytest
