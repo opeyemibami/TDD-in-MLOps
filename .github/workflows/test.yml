@@ -10,7 +10,7 @@ jobs:
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         run: |
-          echo "::set-env name=PYTHONPATH::home/runner/work/TDD-in-MLOps"
+          echo "::set-env name=PYTHONPATH::home/runner/work/TDD-in-MLOps/src"
           pip install -r requirements.txt
           pytest tests/
           
