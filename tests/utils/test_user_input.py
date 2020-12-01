@@ -15,12 +15,15 @@ class TestGetUserInput(object):
 
     def test_data_dimension(self):
         """
+        This function ensures that the type of data ingested into the sys
+        is in the right dimension 
         """
         data = get_user_input(data_path) 
         assert data.ndim == 2
 
     def test_data_feature_names(self):
         """
+        This function test if the ingetsed data have the features in the right order
         """
         data = get_user_input(data_path) 
         assert list(data.columns) == EXPECTED_FEATURES
