@@ -9,5 +9,7 @@ jobs:
       - name: project-testing
         run: |
           pip install -r requirements.txt
+          pip install setuptools wheel 
+          python setup.py sdist bdist_wheel
           pytest tests/
           
