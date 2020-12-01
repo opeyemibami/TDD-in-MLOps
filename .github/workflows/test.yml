@@ -3,11 +3,11 @@ on: [push]
 jobs:
   run:
     runs-on: [ubuntu-latest]
+    container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
       - name: project-testing
         run: |
-          python setup.py sdist bdist_wheel
-          pip install -e .
+          pip install -r requirements.txt
           pytest tests/
           
